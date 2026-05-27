@@ -1,0 +1,130 @@
+{
+  "site": {
+    "name": "Inițiativa Urbană",
+    "area": "Căuzași",
+    "fullName": "Inițiativa Urbană Căuzași",
+    "description": "Inițiativa Urbanã Căuzași reunește vecinii din zona Matei Basarab, Căuzași și Anton Pann pentru un cartier mai curat, mai sigur și mai prietenos."
+  },
+  "navigation": {
+    "ariaLabel": "Navigație principală",
+    "brandAriaLabel": "Inițiativa Urbană",
+    "items": [
+      { "to": "/", "label": "Acasă" },
+      { "to": "/despre", "label": "Despre" },
+      { "to": "/proiecte", "label": "Proiecte" },
+      { "to": "/implica-te", "label": "Implică-te" },
+      { "to": "/contact", "label": "Contact" }
+    ]
+  },
+  "home": {
+    "kicker": "Matei Basarab · Căuzași · Anton Pann",
+    "title": "Vecini care transformă cartierul în fiecare săptămână.",
+    "lead": "Adunãm idei, sesizări și energie civică pentru un cartier central mai curat, mai sigur și mai prietenos cu oamenii care îl locuiesc.",
+    "actionsAriaLabel": "Acțiuni principale",
+    "primaryAction": {
+      "label": "Spune ce trebuie schimbat",
+      "to": "/implica-te"
+    },
+    "secondaryAction": {
+      "label": "Susține petiția",
+      "href": "https://campaniamea.declic.ro/petitions/vrem-un-cartier-civilizat-in-zona-centrala-istorica-matei-basarab-cauzasi-anton-pann"
+    },
+    "map": {
+      "ariaLabel": "Hartă Strada Romulus",
+      "kicker": "Hartă comunitate"
+    }
+  },
+  "about": {
+    "ariaLabel": "Despre inițiativă",
+    "kicker": "Despre noi",
+    "title": "O inițiativă de cartier construită din observații concrete.",
+    "body": "Pornim de la problemele raportate de vecini și le organizăm în pași clari: documentare, prioritizare, comunicare cu autoritățile și urmărirea rezultatelor. Fiecare răspuns din chestionar poate deveni următoarea acțiune."
+  },
+  "projects": {
+    "kicker": "Proiectele noastre",
+    "title": "Trei direcții pentru un cartier care respiră mai bine.",
+    "items": [
+      {
+        "eyebrow": "Un oraș curat",
+        "title": "Mai puțin gunoi, mai multă grijă",
+        "description": "Identificăm punctele critice, strângem sesizări și transformăm curățenia într-un obicei vizibil de cartier."
+      },
+      {
+        "eyebrow": "Străzi deschise",
+        "title": "Spațiu public pentru oameni",
+        "description": "Promovăm străzi sigure, plimbabile și prietenoase cu familiile, copiii, seniorii și micile afaceri locale."
+      },
+      {
+        "eyebrow": "Transport alternativ",
+        "title": "Drumuri mai simple prin cartier",
+        "description": "Încurajăm mersul pe jos, bicicleta și soluțiile de mobilitate care reduc presiunea pe străzile istorice."
+      }
+    ]
+  },
+  "involvement": {
+    "kicker": "Implică-te",
+    "title": "Alege cel mai simplu mod de a ajuta chiar acum.",
+    "actions": [
+      {
+        "title": "Trimite o sugestie",
+        "description": "Completează chestionarul comunității ca să prioritizăm ideile care contează pentru vecini.",
+        "href": "https://forms.gle/8UxvXdwvnsQsXcMG6",
+        "label": "Completează chestionarul"
+      },
+      {
+        "title": "Semnează petiția",
+        "description": "Susține demersul pentru un cartier civilizat în zona Matei Basarab, Căuzași, Anton Pann.",
+        "href": "https://campaniamea.declic.ro/petitions/vrem-un-cartier-civilizat-in-zona-centrala-istorica-matei-basarab-cauzasi-anton-pann",
+        "label": "Vezi petiția"
+      },
+      {
+        "title": "Urmărește problemele",
+        "description": "Consultă tabelul cu probleme și sugestii strânse din conversațiile comunității.",
+        "href": "https://docs.google.com/spreadsheets/d/152dNblz9J_r01m5dogjYnd3pDsGuk6nu5Kb7h3CTcL4/",
+        "label": "Deschide tabelul"
+      }
+    ]
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Hai în conversație.",
+    "body": "Comunitatea crește când informația circulă. Intră pe canalele existente, propune o idee sau ajută la documentarea unei probleme din cartier.",
+    "channels": [
+      {
+        "title": "WhatsApp",
+        "href": "https://chat.whatsapp.com/JLHQT1PrW1MHUHq43DwvOu",
+        "label": "Intră în grup",
+        "icon": "whatsapp"
+      },
+      {
+        "title": "Facebook",
+        "href": "https://www.facebook.com/groups/antonpanncauzasi",
+        "label": "Vezi comunitatea",
+        "icon": "facebook"
+      },
+      {
+        "title": "Email",
+        "href": "mailto:initiativaUrbana.Cauzasi@gmail.com",
+        "label": "Scrie-ne",
+        "icon": "email"
+      }
+    ]
+  },
+  "map": {
+    "kicker": "Hartă",
+    "title": "Cartierul Evreiesc, București",
+    "description": "Hartă centrată pe Strada Romulus, în zona istorică a Cartierului Evreiesc, aproape de Matei Basarab, Căuzași și Anton Pann.",
+    "iframeTitle": "Hartă Cartierul Evreiesc București",
+    "openLabel": "Deschide în Google Maps",
+    "embedUrl": "https://maps.google.com/maps?ll=44.4313,26.1146&z=16&output=embed",
+    "externalUrl": "https://www.google.com/maps/search/?api=1&query=44.4313,26.1146"
+  },
+  "footer": {
+    "rights": "Toate drepturile rezervate."
+  },
+  "notFound": {
+    "kicker": "404",
+    "title": "Pagina nu a fost găsită.",
+    "body": "Adresa nu există încă. Întoarce-te la pagina principală sau folosește navigația pentru a ajunge la secțiunea dorită."
+  }
+}

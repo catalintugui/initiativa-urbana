@@ -1,89 +1,23 @@
+import { useEffect } from "react";
 import { Link, NavLink, Route, Routes } from "react-router-dom";
+import content from "./content.json";
 import treeLogoUrl from "./tree.svg";
 import "./App.css";
 
-const actionLinks = [
-    {
-        title: "Trimite o sugestie",
-        description:
-            "Completează chestionarul comunității ca să prioritizăm ideile care contează pentru vecini.",
-        href: "https://forms.gle/8UxvXdwvnsQsXcMG6",
-        label: "Completează chestionarul",
-    },
-    {
-        title: "Semnează petiția",
-        description:
-            "Susține demersul pentru un cartier civilizat în zona Matei Basarab, Căuzași, Anton Pann.",
-        href: "https://campaniamea.declic.ro/petitions/vrem-un-cartier-civilizat-in-zona-centrala-istorica-matei-basarab-cauzasi-anton-pann",
-        label: "Vezi petiția",
-    },
-    {
-        title: "Urmărește problemele",
-        description:
-            "Consultă tabelul cu probleme și sugestii strânse din conversațiile comunității.",
-        href: "https://docs.google.com/spreadsheets/d/152dNblz9J_r01m5dogjYnd3pDsGuk6nu5Kb7h3CTcL4/",
-        label: "Deschide tabelul",
-    },
-];
-
-const projects = [
-    {
-        eyebrow: "Un oraș curat",
-        title: "Mai puțin gunoi, mai multă grijă",
-        description:
-            "Identificăm punctele critice, strângem sesizări și transformăm curățenia într-un obicei vizibil de cartier.",
-    },
-    {
-        eyebrow: "Străzi deschise",
-        title: "Spațiu public pentru oameni",
-        description:
-            "Promovăm străzi sigure, plimbabile și prietenoase cu familiile, copiii, seniorii și micile afaceri locale.",
-    },
-    {
-        eyebrow: "Transport alternativ",
-        title: "Drumuri mai simple prin cartier",
-        description:
-            "Încurajăm mersul pe jos, bicicleta și soluțiile de mobilitate care reduc presiunea pe străzile istorice.",
-    },
-];
-
-const communityChannels = [
-    {
-        title: "WhatsApp",
-        href: "https://chat.whatsapp.com/JLHQT1PrW1MHUHq43DwvOu",
-        label: "Intră în grup",
-        icon: "whatsapp",
-    },
-    {
-        title: "Facebook",
-        href: "https://www.facebook.com/groups/antonpanncauzasi",
-        label: "Vezi comunitatea",
-        icon: "facebook",
-    },
-    {
-        title: "Email",
-        href: "mailto:initiativaUrbana.Cauzasi@gmail.com",
-        label: "Scrie-ne",
-        icon: "email",
-    },
-];
-
-const navItems = [
-    { to: "/", label: "Acasă" },
-    { to: "/despre", label: "Despre" },
-    { to: "/proiecte", label: "Proiecte" },
-    { to: "/implica-te", label: "Implică-te" },
-    { to: "/cum-lucram", label: "Cum lucrăm" },
-    { to: "/contact", label: "Contact" },
-];
-
-const jewishQuarterMapEmbedUrl =
-    "https://maps.google.com/maps?ll=44.4313,26.1146&z=16&output=embed";
-
-const jewishQuarterMapUrl =
-    "https://www.google.com/maps/search/?api=1&query=44.4313,26.1146";
-
 type ChannelIconName = "whatsapp" | "facebook" | "email";
+
+type SiteContent = typeof content & {
+    contact: {
+        channels: Array<{
+            title: string;
+            href: string;
+            label: string;
+            icon: ChannelIconName;
+        }>;
+    };
+};
+
+const siteContent = content as SiteContent;
 
 function ChannelIcon({ name }: { name: ChannelIconName }) {
     if (name === "whatsapp") {
@@ -111,18 +45,22 @@ function ChannelIcon({ name }: { name: ChannelIconName }) {
 
 function Navbar() {
     return (
-        <nav className="navbar" aria-label="Navigație principală">
-            <Link className="brand" to="/" aria-label="Inițiativa Urbană">
+        <nav className="navbar" aria-label={siteContent.navigation.ariaLabel}>
+            <Link
+                className="brand"
+                to="/"
+                aria-label={siteContent.navigation.brandAriaLabel}
+            >
                 <span className="brand-mark">
                     <img src={treeLogoUrl} alt="" aria-hidden="true" />
                 </span>
                 <span>
-                    Inițiativa Urbană
-                    <strong>Căuzași</strong>
+                    {siteContent.site.name}
+                    <strong>{siteContent.site.area}</strong>
                 </span>
             </Link>
             <div className="nav-links">
-                {navItems.map((item) => (
+                {siteContent.navigation.items.map((item) => (
                     <NavLink
                         className={({ isActive }) =>
                             isActive ? "active" : undefined
@@ -145,52 +83,46 @@ function HomePage() {
             <section className="hero">
                 <div className="hero-copy">
                     <p className="section-kicker">
-                        Matei Basarab · Căuzași · Anton Pann
+                        {siteContent.home.kicker}
                     </p>
-                    <h1>
-                        Vecini care transformă cartierul în fiecare săptămână.
-                    </h1>
-                    <p className="hero-lead">
-                        Adunãm idei, sesizări și energie civică pentru un
-                        cartier central mai curat, mai sigur și mai prietenos cu
-                        oamenii care îl locuiesc.
-                    </p>
+                    <h1>{siteContent.home.title}</h1>
+                    <p className="hero-lead">{siteContent.home.lead}</p>
                     <div
                         className="hero-actions"
-                        aria-label="Acțiuni principale"
+                        aria-label={siteContent.home.actionsAriaLabel}
                     >
                         <Link
                             className="button button-primary"
-                            to="/implica-te"
+                            to={siteContent.home.primaryAction.to}
                         >
-                            Spune ce trebuie schimbat
+                            {siteContent.home.primaryAction.label}
                         </Link>
                         <a
                             className="button button-secondary"
-                            href="https://campaniamea.declic.ro/petitions/vrem-un-cartier-civilizat-in-zona-centrala-istorica-matei-basarab-cauzasi-anton-pann"
+                            href={siteContent.home.secondaryAction.href}
                             rel="noreferrer"
                             target="_blank"
                         >
-                            Susține petiția
+                            {siteContent.home.secondaryAction.label}
                         </a>
                     </div>
                 </div>
 
                 <aside
                     className="hero-map-card"
-                    aria-label="Hartă Strada Romulus"
+                    aria-label={siteContent.home.map.ariaLabel}
                 >
                     <div className="hero-map-heading">
-                        <p>Hartă comunitate</p>
+                        <p>{siteContent.home.map.kicker}</p>
                     </div>
                     <MapEmbed />
                     <a
                         className="map-link"
-                        href={jewishQuarterMapUrl}
+                        href={siteContent.map.externalUrl}
                         rel="noreferrer"
                         target="_blank"
                     >
-                        Deschide în Google Maps
+                        {siteContent.map.openLabel}
                     </a>
                 </aside>
             </section>
@@ -203,20 +135,13 @@ function AboutPage({ compact = false }: { compact?: boolean }) {
     return (
         <section
             className={compact ? "intro-panel" : "intro-panel page-panel"}
-            aria-label="Despre inițiativă"
+            aria-label={siteContent.about.ariaLabel}
         >
             <div>
-                <p className="section-kicker">Despre noi</p>
-                <h2>
-                    O inițiativă de cartier construită din observații concrete.
-                </h2>
+                <p className="section-kicker">{siteContent.about.kicker}</p>
+                <h2>{siteContent.about.title}</h2>
             </div>
-            <p>
-                Pornim de la problemele raportate de vecini și le organizăm în
-                pași clari: documentare, prioritizare, comunicare cu
-                autoritățile și urmărirea rezultatelor. Fiecare răspuns din
-                chestionar poate deveni următoarea acțiune.
-            </p>
+            <p>{siteContent.about.body}</p>
         </section>
     );
 }
@@ -225,11 +150,11 @@ function ProjectsPage() {
     return (
         <section className="section page-section">
             <div className="section-heading">
-                <p className="section-kicker">Proiectele noastre</p>
-                <h2>Trei direcții pentru un cartier care respiră mai bine.</h2>
+                <p className="section-kicker">{siteContent.projects.kicker}</p>
+                <h2>{siteContent.projects.title}</h2>
             </div>
             <div className="project-grid">
-                {projects.map((project) => (
+                {siteContent.projects.items.map((project) => (
                     <article className="project-card" key={project.title}>
                         <span>{project.eyebrow}</span>
                         <h3>{project.title}</h3>
@@ -245,11 +170,13 @@ function GetInvolvedPage() {
     return (
         <section className="section action-section page-section">
             <div className="section-heading">
-                <p className="section-kicker">Implică-te</p>
-                <h2>Alege cel mai simplu mod de a ajuta chiar acum.</h2>
+                <p className="section-kicker">
+                    {siteContent.involvement.kicker}
+                </p>
+                <h2>{siteContent.involvement.title}</h2>
             </div>
             <div className="action-grid">
-                {actionLinks.map((link) => (
+                {siteContent.involvement.actions.map((link) => (
                     <article className="action-card" key={link.title}>
                         <h3>{link.title}</h3>
                         <p>{link.description}</p>
@@ -263,40 +190,13 @@ function GetInvolvedPage() {
     );
 }
 
-function ProcessPage() {
-    return (
-        <section className="process page-section">
-            <p className="section-kicker">Cum lucrăm</p>
-            <h2>Transformăm conversațiile în pași urmăribili.</h2>
-            <div className="process-steps">
-                <div>
-                    <strong>01</strong>
-                    <span>Colectăm sugestii</span>
-                </div>
-                <div>
-                    <strong>02</strong>
-                    <span>Le grupăm pe priorități</span>
-                </div>
-                <div>
-                    <strong>03</strong>
-                    <span>Le ducem mai departe împreună</span>
-                </div>
-            </div>
-        </section>
-    );
-}
-
 function ContactPage() {
     return (
         <section className="contact-panel page-panel">
             <div>
-                <p className="section-kicker">Contact</p>
-                <h2>Hai în conversație.</h2>
-                <p>
-                    Comunitatea crește când informația circulă. Intră pe
-                    canalele existente, propune o idee sau ajută la documentarea
-                    unei probleme din cartier.
-                </p>
+                <p className="section-kicker">{siteContent.contact.kicker}</p>
+                <h2>{siteContent.contact.title}</h2>
+                <p>{siteContent.contact.body}</p>
             </div>
             <SocialLinks variant="cards" />
         </section>
@@ -310,8 +210,8 @@ function MapEmbed() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                src={jewishQuarterMapEmbedUrl}
-                title="Hartă Cartierul Evreiesc București"
+                src={siteContent.map.embedUrl}
+                title={siteContent.map.iframeTitle}
             />
         </div>
     );
@@ -321,22 +221,18 @@ function MapSection({ compact = false }: { compact?: boolean }) {
     return (
         <section className={compact ? "map-panel" : "map-panel page-panel"}>
             <div className="section-heading">
-                <p className="section-kicker">Hartă</p>
-                <h2>Cartierul Evreiesc, București</h2>
-                <p>
-                    Hartă centrată pe Strada Romulus, în zona istorică a
-                    Cartierului Evreiesc, aproape de Matei Basarab, Căuzași și
-                    Anton Pann.
-                </p>
+                <p className="section-kicker">{siteContent.map.kicker}</p>
+                <h2>{siteContent.map.title}</h2>
+                <p>{siteContent.map.description}</p>
             </div>
             <MapEmbed />
             <a
                 className="map-link"
-                href={jewishQuarterMapUrl}
+                href={siteContent.map.externalUrl}
                 rel="noreferrer"
                 target="_blank"
             >
-                Deschide în Google Maps
+                {siteContent.map.openLabel}
             </a>
         </section>
     );
@@ -349,7 +245,7 @@ function MapPage() {
 function SocialLinks({ variant = "cards" }: { variant?: "cards" | "footer" }) {
     return (
         <div className={variant === "cards" ? "channel-list" : "footer-social"}>
-            {communityChannels.map((channel) => (
+            {siteContent.contact.channels.map((channel) => (
                 <a
                     href={channel.href}
                     key={channel.title}
@@ -378,11 +274,11 @@ function Footer() {
         <footer className="site-footer">
             <div>
                 <Link className="footer-brand" to="/">
-                    Inițiativa Urbană Căuzași
+                    {siteContent.site.fullName}
                 </Link>
                 <p>
-                    © {year} Inițiativa Urbană Căuzași. Toate drepturile
-                    rezervate.
+                    © {year} {siteContent.site.fullName}.{" "}
+                    {siteContent.footer.rights}
                 </p>
             </div>
             <SocialLinks variant="footer" />
@@ -394,18 +290,22 @@ function NotFoundPage() {
     return (
         <section className="intro-panel page-panel">
             <div>
-                <p className="section-kicker">404</p>
-                <h2>Pagina nu a fost găsită.</h2>
+                <p className="section-kicker">{siteContent.notFound.kicker}</p>
+                <h2>{siteContent.notFound.title}</h2>
             </div>
-            <p>
-                Adresa nu există încă. Întoarce-te la pagina principală sau
-                folosește navigația pentru a ajunge la secțiunea dorită.
-            </p>
+            <p>{siteContent.notFound.body}</p>
         </section>
     );
 }
 
 function App() {
+    useEffect(() => {
+        document.title = siteContent.site.fullName;
+        document
+            .querySelector('meta[name="description"]')
+            ?.setAttribute("content", siteContent.site.description);
+    }, []);
+
     return (
         <main className="page-shell">
             <Navbar />
@@ -415,7 +315,6 @@ function App() {
                     <Route element={<AboutPage />} path="/despre" />
                     <Route element={<ProjectsPage />} path="/proiecte" />
                     <Route element={<GetInvolvedPage />} path="/implica-te" />
-                    <Route element={<ProcessPage />} path="/cum-lucram" />
                     <Route element={<MapPage />} path="/harta" />
                     <Route element={<ContactPage />} path="/contact" />
                     <Route element={<NotFoundPage />} path="*" />

@@ -139,7 +139,6 @@
 .intro-panel,
 .contact-panel,
 .map-panel,
-.process,
 .project-card,
 .action-card {
   border: 1px solid rgba(34, 58, 43, 0.12);
@@ -370,7 +369,6 @@ h3 {
 
 .intro-panel,
 .section,
-.process,
 .map-panel,
 .contact-panel {
   width: min(1180px, 100%);
@@ -476,48 +474,6 @@ h3 {
   font-size: 0.93rem;
   font-weight: 900;
   text-decoration: none;
-}
-
-.process {
-  border-radius: 34px;
-  padding: clamp(28px, 5vw, 46px);
-  background: #233128;
-}
-
-.process .section-kicker {
-  color: #a8d7ad;
-}
-
-.process h2 {
-  max-width: 760px;
-  margin-bottom: 28px;
-  color: #ffffff;
-}
-
-.process-steps {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.process-steps div {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
-  padding: 24px;
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.process-steps strong {
-  display: block;
-  margin-bottom: 34px;
-  color: #a8d7ad;
-  font-size: 0.9rem;
-}
-
-.process-steps span {
-  color: #ffffff;
-  font-size: 1.2rem;
-  font-weight: 900;
 }
 
 .contact-panel {
@@ -754,8 +710,7 @@ h3 {
   }
 
   .project-grid,
-  .action-grid,
-  .process-steps {
+  .action-grid {
     grid-template-columns: 1fr;
   }
 
@@ -796,7 +751,6 @@ h3 {
   .intro-panel,
   .project-card,
   .action-card,
-  .process,
   .map-panel,
   .contact-panel {
     border-radius: 26px;
