@@ -1,93 +1,103 @@
-import { Link } from "react-router-dom";
-import { MapEmbed } from "../components/ui/MapEmbed";
+import { useEffect } from "react";
+import { SnapSection } from "../components/ui/SnapSection";
+import { VisionSlider } from "../components/ui/VisionSlider";
+import { MapSection } from "../components/ui/MapSection";
+import { TextPage } from "../components/ui/TextPage";
 import { siteContent } from "../content/siteContent";
+import { ContactPage } from "./ContactPage";
+import { GetInvolvedPage } from "./GetInvolvedPage";
+import { TeamPage } from "./TeamPage";
+import { isValidSectionId, scrollToSection } from "../scrollToSection";
 
 export function HomePage() {
-    const streetList =
-        "Matei Basarab, Romulus, Parfumului, Anton Pann, Căuzași, Ion Filibiliu, Zossima Demarat, Vintilă Vodă, Radu Ceauș și Vulturilor";
-    const [leadBeforeStreetList, leadAfterStreetList] =
-        siteContent.home.lead.split(streetList);
+    useEffect(() => {
+        const hash = window.location.hash.replace("#", "");
+
+        if (!hash || !isValidSectionId(hash)) {
+            return;
+        }
+
+        scrollToSection(hash, "auto");
+    }, []);
 
     return (
         <>
-            <section className="story-hero">
-                <div className="story-hero-grid">
-                    <div className="story-copy">
-                        <p className="section-kicker">
-                            {siteContent.home.kicker}
-                        </p>
-                        <h1>{siteContent.home.title}</h1>
-                        <p className="hero-lead">
-                            {leadBeforeStreetList}
-                            <strong>{streetList}</strong>
-                            {leadAfterStreetList}
-                        </p>
-                    </div>
-
-                    <aside
-                        className="hero-map-card"
-                        aria-label={siteContent.home.map.ariaLabel}
-                    >
-                        <div className="hero-map-heading">
-                            <p>{siteContent.home.map.kicker}</p>
+            <SnapSection
+                ariaLabel={siteContent.home.title}
+                className="snap-section--hero"
+                id="cauzasi-2030"
+            >
+                <div className="story-copy story-copy--solo">
+                    <p className="section-kicker">{siteContent.home.kicker}</p>
+                    <h1>{siteContent.home.title}</h1>
+                    <div className="hero-split">
+                        <div className="hero-split-copy">
+                            {siteContent.home.intro.slice(0, 2).map((paragraph, index) => (
+                                <p key={index}>{paragraph}</p>
+                            ))}
                         </div>
-                        <MapEmbed />
+                        <VisionSlider />
+                    </div>
+                    <div className="hero-intro">
+                        {siteContent.home.intro.slice(2).map((paragraph, index) => (
+                            <p key={index + 2}>{paragraph}</p>
+                        ))}
+                    </div>
+                    <div className="hero-actions">
+                        <a className="button button-primary" href="#petitii">
+                            {siteContent.home.primaryAction.label}
+                        </a>
                         <a
-                            className="map-link"
-                            href={siteContent.map.externalUrl}
+                            className="button button-secondary"
+                            href={siteContent.home.secondaryAction.href}
                             rel="noreferrer"
                             target="_blank"
                         >
-                            {siteContent.map.openLabel}
+                            {siteContent.home.secondaryAction.label}
                         </a>
-                    </aside>
+                    </div>
                 </div>
-            </section>
+            </SnapSection>
 
-            <section className="story-panel" aria-label="Povestea Căuzași 2030">
-                <div className="story-panel-heading">
-                    <p className="section-kicker">Viziune</p>
-                    <h2>
-                        Un cartier viu, sigur, verde și demn de istoria lui.
-                    </h2>
-                </div>
-                <div className="story-body">
-                    {siteContent.home.story.map((paragraph, index) => (
-                        <p
-                            className={index === 0 ? "story-intro" : undefined}
-                            key={paragraph}
-                        >
-                            {paragraph}
-                        </p>
-                    ))}
-                </div>
-            </section>
-
-            <section
-                className="story-actions"
-                aria-label={siteContent.home.actionsAriaLabel}
+            <SnapSection
+                ariaLabel={siteContent.map.kicker}
+                className="snap-section--map"
+                id="harta"
             >
-                <div>
-                    <p className="section-kicker">Participă</p>
-                    <h2>Schimbarea poate începe acum.</h2>
-                </div>
-                <div className="hero-actions">
-                    <Link
-                        className="button button-primary"
-                        to={siteContent.home.primaryAction.to}
-                    >
-                        {siteContent.home.primaryAction.label}
-                    </Link>
-                    <a
-                        className="button button-secondary"
-                        href={siteContent.home.secondaryAction.href}
-                        rel="noreferrer"
-                        target="_blank"
-                    >
-                        {siteContent.home.secondaryAction.label}
-                    </a>
-                </div>
-            </section>
+                <MapSection snap />
+            </SnapSection>
+
+            <SnapSection
+                ariaLabel={siteContent.volunteers.kicker}
+                id="voluntari"
+            >
+                <TextPage compact page={siteContent.volunteers} />
+            </SnapSection>
+
+            <SnapSection
+                ariaLabel={siteContent.involvement.kicker}
+                id="petitii"
+            >
+                <GetInvolvedPage compact />
+            </SnapSection>
+
+            <SnapSection
+                ariaLabel={siteContent.sponsors.kicker}
+                id="sponsori"
+            >
+                <TextPage compact page={siteContent.sponsors} />
+            </SnapSection>
+
+            <SnapSection ariaLabel={siteContent.team.kicker} id="echipa">
+                <TeamPage compact />
+            </SnapSection>
+
+            <SnapSection
+                ariaLabel={siteContent.contact.kicker}
+                id="contact"
+            >
+                <ContactPage compact />
+            </SnapSection>
         </>
     );
 }

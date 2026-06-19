@@ -3,17 +3,28 @@ import { MapEmbed } from "./MapEmbed";
 
 type MapSectionProps = {
     compact?: boolean;
+    snap?: boolean;
 };
 
-export function MapSection({ compact = false }: MapSectionProps) {
+export function MapSection({ compact = false, snap = false }: MapSectionProps) {
+    const PanelTag = snap ? "div" : "section";
+
     return (
-        <section className={compact ? "map-panel" : "map-panel page-panel"}>
-            <div className="section-heading">
+        <PanelTag
+            className={[
+                "map-panel",
+                compact || snap ? "snap-panel" : "page-panel",
+                snap ? "map-panel--snap" : "",
+            ]
+                .filter(Boolean)
+                .join(" ")}
+        >
+            <div className="map-panel-heading">
                 <p className="section-kicker">{siteContent.map.kicker}</p>
                 <h2>{siteContent.map.title}</h2>
-                <p>{siteContent.map.description}</p>
+                {!snap && <p>{siteContent.map.description}</p>}
             </div>
-            <MapEmbed />
+            <MapEmbed interactive={!snap} />
             <a
                 className="map-link"
                 href={siteContent.map.externalUrl}
@@ -22,6 +33,6 @@ export function MapSection({ compact = false }: MapSectionProps) {
             >
                 {siteContent.map.openLabel}
             </a>
-        </section>
+        </PanelTag>
     );
 }

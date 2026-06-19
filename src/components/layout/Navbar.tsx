@@ -1,151 +1,98 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
 import {
     siteContent,
     type NavigationItem,
 } from "../../content/siteContent";
-import treeLogoUrl from "../../tree.svg";
+import { useActiveSection } from "../../hooks/useActiveSection";
+import { scrollToSection } from "../../scrollToSection";
+
+function getSectionId(href: string) {
+    return href.replace(/^#/, "");
+}
 
 export function Navbar() {
-    const { pathname } = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [activeMobileSubmenu, setActiveMobileSubmenu] =
-        useState<NavigationItem | null>(null);
+    const activeId = useActiveSection();
+    const navItems = siteContent.navigation.items.filter(
+        (item): item is NavigationItem & { to: string } => Boolean(item.to),
+    );
 
     useEffect(() => {
         setIsMenuOpen(false);
-        setActiveMobileSubmenu(null);
-    }, [pathname]);
+    }, [activeId]);
+
+    const handleNavClick = (href: string) => {
+        scrollToSection(getSectionId(href));
+        setIsMenuOpen(false);
+    };
 
     return (
         <nav className="navbar" aria-label={siteContent.navigation.ariaLabel}>
-            <Link
+            <a
                 className="brand"
-                to="/"
+                href="#cauzasi-2030"
                 aria-label={siteContent.navigation.brandAriaLabel}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(event) => {
+                    event.preventDefault();
+                    handleNavClick("#cauzasi-2030");
+                }}
             >
                 <span className="brand-mark">
-                    <img src={treeLogoUrl} alt="" aria-hidden="true" />
+                    <img
+                        src="/brand/logo-mark.png"
+                        alt=""
+                        aria-hidden="true"
+                    />
                 </span>
-                <span>
-                    {siteContent.site.name}
-                    <strong>{siteContent.site.area}</strong>
+                <span className="brand-text">
+                    <span className="brand-title">
+                        {siteContent.site.name} {siteContent.site.area}
+                    </span>
+                    <span className="brand-tagline">
+                            {siteContent.site.tagline}
+                        </span>
                 </span>
-            </Link>
+            </a>
             <button
                 className="nav-toggle"
                 type="button"
                 aria-controls="primary-navigation"
                 aria-expanded={isMenuOpen}
                 aria-label={isMenuOpen ? "Închide meniul" : "Deschide meniul"}
-                onClick={() => {
-                    setIsMenuOpen((current) => {
-                        if (current) {
-                            setActiveMobileSubmenu(null);
-                        }
-
-                        return !current;
-                    });
-                }}
+                onClick={() => setIsMenuOpen((current) => !current)}
             >
                 <span />
                 <span />
                 <span />
             </button>
             <div
-                className={[
-                    "nav-links",
-                    isMenuOpen ? "open" : "",
-                    activeMobileSubmenu ? "mobile-submenu-open" : "",
-                ]
+                className={["nav-links", isMenuOpen ? "open" : ""]
                     .filter(Boolean)
                     .join(" ")}
                 id="primary-navigation"
             >
-                {siteContent.navigation.items.map((item) => {
-                    if (item.children?.length) {
-                        const isActiveGroup = item.children.some(
-                            (child) => child.to === pathname,
-                        );
-
-                        return (
-                            <div className="nav-item-group" key={item.label}>
-                                <button
-                                    className={
-                                        isActiveGroup ? "active" : undefined
-                                    }
-                                    onClick={() => setActiveMobileSubmenu(item)}
-                                    type="button"
-                                >
-                                    {item.label}
-                                    <span
-                                        className="nav-submenu-indicator"
-                                        aria-hidden="true"
-                                    >
-                                        →
-                                    </span>
-                                </button>
-                                <div className="nav-submenu">
-                                    {item.children.map((child) => (
-                                        <NavLink
-                                            key={child.to}
-                                            to={child.to}
-                                            onClick={() => setIsMenuOpen(false)}
-                                        >
-                                            {child.label}
-                                        </NavLink>
-                                    ))}
-                                </div>
-                            </div>
-                        );
-                    }
-
+                {navItems.map((item) => {
                     if (!item.to) {
                         return null;
                     }
 
+                    const sectionId = getSectionId(item.to);
+                    const isActive = activeId === sectionId;
+
                     return (
-                        <NavLink
-                            className={({ isActive }) =>
-                                isActive ? "active" : undefined
-                            }
-                            end={item.to === "/"}
+                        <a
+                            className={isActive ? "active" : undefined}
+                            href={item.to}
                             key={item.to}
-                            to={item.to}
-                            onClick={() => setIsMenuOpen(false)}
+                            onClick={(event) => {
+                                event.preventDefault();
+                                handleNavClick(item.to);
+                            }}
                         >
                             {item.label}
-                        </NavLink>
+                        </a>
                     );
                 })}
-                {activeMobileSubmenu?.children && (
-                    <div className="mobile-submenu-panel">
-                        <button
-                            className="mobile-submenu-back"
-                            aria-label="Înapoi"
-                            onClick={() => setActiveMobileSubmenu(null)}
-                            type="button"
-                        >
-                            <span aria-hidden="true">←</span>
-                        </button>
-                        <p className="mobile-submenu-title">
-                            {activeMobileSubmenu.label}
-                        </p>
-                        {activeMobileSubmenu.children.map((child) => (
-                            <NavLink
-                                key={child.to}
-                                to={child.to}
-                                onClick={() => {
-                                    setIsMenuOpen(false);
-                                    setActiveMobileSubmenu(null);
-                                }}
-                            >
-                                {child.label}
-                            </NavLink>
-                        ))}
-                    </div>
-                )}
             </div>
         </nav>
     );

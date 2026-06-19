@@ -2,17 +2,24 @@ import type { TextPageContent } from "../../content/siteContent";
 
 type TextPageProps = {
     page: TextPageContent;
+    compact?: boolean;
 };
 
-export function TextPage({ page }: TextPageProps) {
+export function TextPage({ page, compact = false }: TextPageProps) {
+    const paragraphs = compact ? page.body.slice(0, 2) : page.body;
+    const PanelTag = compact ? "div" : "section";
+
     return (
-        <section className="story-panel page-panel" aria-label={page.kicker}>
+        <PanelTag
+            className={compact ? "story-panel snap-panel" : "story-panel page-panel"}
+            aria-label={page.kicker}
+        >
             <div className="story-panel-heading">
                 <p className="section-kicker">{page.kicker}</p>
                 <h2>{page.title}</h2>
             </div>
             <div className="story-body">
-                {page.body.map((paragraph, index) => (
+                {paragraphs.map((paragraph, index) => (
                     <p
                         className={index === 0 ? "story-intro" : undefined}
                         key={paragraph}
@@ -46,6 +53,6 @@ export function TextPage({ page }: TextPageProps) {
                     </div>
                 )}
             </div>
-        </section>
+        </PanelTag>
     );
 }

@@ -1,0 +1,59 @@
+:root {
+  --color-primary: #1f352d;
+  --color-primary-soft: #5e6f57;
+  --color-sage: #a8b28a;
+  --color-beige: #e7e1d2;
+  --color-cream: #f4efe6;
+  --color-gold: #b8974a;
+  --color-charcoal: #2e2e2e;
+  --color-white: #ffffff;
+
+  --color-text: var(--color-primary);
+  --color-text-muted: var(--color-primary-soft);
+  --color-heading: var(--color-primary);
+  --color-bg: var(--color-cream);
+  --color-surface: rgba(255, 255, 255, 0.9);
+  --color-surface-muted: rgba(244, 239, 230, 0.82);
+  --color-button: var(--color-primary);
+  --color-button-hover: #162820;
+  --color-button-secondary: var(--color-beige);
+  --color-button-secondary-hover: var(--color-sage);
+  --color-kicker: var(--color-gold);
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-gold);
+
+  --font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "Source Sans 3", Inter, ui-sans-serif, system-ui, sans-serif;
+
+  --glass-surface: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.88),
+    rgba(244, 239, 230, 0.72)
+  );
+  --glass-surface-strong: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.94),
+    rgba(231, 225, 210, 0.68)
+  );
+  --glass-border: rgba(31, 53, 45, 0.12);
+  --glass-shadow: 0 16px 48px rgba(31, 53, 45, 0.08);
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+
+  --bg-base: linear-gradient(
+    155deg,
+    #f8f4ec 0%,
+    var(--color-cream) 28%,
+    var(--color-beige) 58%,
+    #d8cfc0 100%
+  );
+  --bg-glow-sage: rgba(168, 178, 138, 0.52);
+  --bg-glow-cream: rgba(255, 252, 246, 0.92);
+  --bg-glow-forest: rgba(94, 111, 87, 0.32);
+  --bg-glow-gold: rgba(184, 151, 74, 0.18);
+}

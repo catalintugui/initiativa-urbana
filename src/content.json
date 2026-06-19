@@ -1,32 +1,34 @@
 {
     "site": {
-        "name": "Inițiativa Urbană",
-        "area": "Căuzași",
-        "fullName": "Inițiativa Urbană Căuzași",
-        "description": "Inițiativa Urbanã Căuzași reunește vecinii din zona Matei Basarab, Căuzași și Anton Pann pentru un cartier mai curat, mai sigur și mai prietenos."
+        "name": "Căuzași",
+        "area": "2030",
+        "fullName": "Căuzași 2030",
+        "tagline": "Comunitate. Regenerare urbană. Cartier viu.",
+        "description": "Căuzași 2030 reunește vecinii din zona Matei Basarab, Căuzași și Anton Pann pentru un cartier mai curat, mai sigur și mai prietenos."
     },
     "navigation": {
         "ariaLabel": "Navigație principală",
-        "brandAriaLabel": "Inițiativa Urbană",
+        "brandAriaLabel": "Căuzași 2030",
         "items": [
-            { "to": "/", "label": "Cauzaşi 2030" },
-            { "to": "/comunitate", "label": "Comunitate" },
-            {
-                "label": "Implică-te",
-                "children": [
-                    { "to": "/voluntari", "label": "Voluntari" },
-                    { "to": "/petitii", "label": "Petiții" },
-                    { "to": "/sponsori", "label": "Sponsori" }
-                ]
-            },
-            { "to": "/evenimente", "label": "Evenimente" },
-            { "to": "/echipa", "label": "Echipa" },
-            { "to": "/contact", "label": "Contact" }
+            { "to": "#cauzasi-2030", "label": "Cauzaşi 2030" },
+            { "to": "#harta", "label": "Hartă" },
+            { "to": "#voluntari", "label": "Voluntari" },
+            { "to": "#petitii", "label": "Petiții" },
+            { "to": "#sponsori", "label": "Sponsori" },
+            { "to": "#echipa", "label": "Echipa" },
+            { "to": "#contact", "label": "Contact" }
         ]
     },
     "home": {
         "kicker": "Povestea inițiativei civice",
         "title": "Căuzași 2030",
+        "intro": [
+            "Locuim în zona Anton Pann – Lucaci – Căuzași și, ca mulți vecini de aici, am descoperit cât de special este acest cartier: case vechi, detalii arhitecturale rare, curți ascunse și urme ale unui București care încă există, dar care este ignorat complet de autorități și nu este îngrijit așa cum ar merita.",
+            "În același timp, trăim zilnic și partea mai greu de trecut cu vederea: străzi murdare, trotuare ocupate sau greu de folosit, spații neîngrijite, lipsa parcărilor, traficul de tranzit haotic și excesiv, lipsa spațiilor publice, lipsa zonelor verzi. Este un cartier în care simți că potențialul și realitatea nu se întâlnesc.",
+            "Aceste observații personale s-au transformat într-o întrebare: ce am putea face, noi, locuitorii, ca să îmbunătățim cartierul în care trăim?",
+            "Așa a început Căuzași 2030, o inițiativă mică, pornită de pe o singură stradă, care a crescut treptat pe măsură ce au venit alături vecini, prieteni și oameni care simt la fel. Nu suntem o inițiativă politică și nu vrem să transformăm cartierul într-un decor artificial. Vrem un proces lucid, făcut împreună cu vecinii, școlile, instituțiile, business-urile locale, arhitecții, urbaniștii, sociologii și oamenii care cunosc memoria locului.",
+            "Astăzi, Căuzași 2030 înseamnă un efort colectiv de a reda cartierului mai multă grijă, mai multă coerență și mai mult spațiu pentru viața de zi cu zi. Un cartier mai ușor de parcurs, mai verde, mai sigur și mai viu. Căuzași 2030 este o invitație: să ne uităm la ce avem, să spunem ce nu mai funcționează și să desenăm, pas cu pas, o versiune mai bună a cartierului."
+        ],
         "lead": "Căuzași 2030 pornește de la o idee simplă: cartierul acesta nu trebuie inventat de la zero, ci ascultat, reparat și pus din nou în valoare. Între străzile Matei Basarab, Romulus, Parfumului, Anton Pann, Căuzași, Ion Filibiliu, Zossima Demarat, Vintilă Vodă, Radu Ceauș și Vulturilor există încă un București vechi, fragil și viu.",
         "story": [
             "Îl vezi în fațade, în curți, în arborii rămași, în casele care mai păstrează ritmul orașului de dinaintea bulevardelor mari. Îl vezi și în problemele de zi cu zi: trotuare înguste sau ocupate, parcări improvizate, trafic confuz, terenuri virane, prea puțină umbră, prea puține locuri în care să te oprești pur și simplu ca om, nu ca șofer grăbit.",
@@ -39,7 +41,7 @@
         "actionsAriaLabel": "Acțiuni principale",
         "primaryAction": {
             "label": "Spune ce trebuie schimbat",
-            "to": "/petitii"
+            "to": "#petitii"
         },
         "secondaryAction": {
             "label": "Susține petiția",
@@ -76,8 +78,8 @@
         ],
         "contactLinks": [
             {
-                "label": "InitiativaUrbana.Cauzasi@gmail.com",
-                "href": "mailto:InitiativaUrbana.Cauzasi@gmail.com"
+                "label": "salut@cauzasi.ro",
+                "href": "mailto:salut@cauzasi.ro"
             },
             {
                 "label": "0724.357.520",
@@ -104,7 +106,7 @@
         "actions": [
             {
                 "label": "Hai să vorbim",
-                "href": "mailto:initiativaUrbana.Cauzasi@gmail.com"
+                "href": "mailto:salut@cauzasi.ro"
             }
         ]
     },
@@ -228,7 +230,7 @@
         "body": [
             "Căuzași 2030 este o invitație deschisă pentru toți cei care vor să se implice în viitorul cartierului: locuitori, vecini, proprietari, business-uri locale, creativi, specialiști, voluntari și oameni care cred că orașul poate fi mai atent cu cei care îl folosesc zi de zi.",
             "Dacă ai o idee, o observație din teren, o fotografie, o propunere, o critică utilă sau pur și simplu vrei să afli ce urmează, scrie-ne. Ne interesează dialogul real, nu comunicarea de vitrină.",
-            "Ne poți urmări pe Instagram, Facebook, TikTok și LinkedIn, unde vom publica update-uri despre campanie, voluntari, evenimente, consultări, harta cartierului și pașii următori. Pentru mesaje directe, propuneri de colaborare, sponsorizări, înscrieri sau întrebări, poți folosi formularul de contact de pe site sau ne poți trimite un e-mail la InitiativaUrbana.Cauzasi@gmail.com.",
+            "Ne poți urmări pe Instagram, Facebook, TikTok și LinkedIn, unde vom publica update-uri despre campanie, voluntari, evenimente, consultări, harta cartierului și pașii următori. Pentru mesaje directe, propuneri de colaborare, sponsorizări, înscrieri sau întrebări, poți folosi formularul de contact de pe site sau ne poți trimite un e-mail la salut@cauzasi.ro.",
             "Schimbarea începe mai simplu decât pare: cu un mesaj, o idee, o semnătură, o recomandare sau două ore oferite comunității. Hai să vorbim. Cartierul se construiește mai bine când oamenii se cunosc."
         ],
         "channels": [
@@ -246,7 +248,7 @@
             },
             {
                 "title": "Email",
-                "href": "mailto:initiativaUrbana.Cauzasi@gmail.com",
+                "href": "mailto:salut@cauzasi.ro",
                 "label": "Scrie-ne",
                 "icon": "email"
             }
@@ -258,10 +260,11 @@
         "description": "Hartă centrată pe Strada Romulus, în zona istorică a Cartierului Evreiesc, aproape de Matei Basarab, Căuzași și Anton Pann.",
         "iframeTitle": "Hartă Cartierul Evreiesc București",
         "openLabel": "Deschide în Google Maps",
-        "embedUrl": "https://maps.google.com/maps?ll=44.4298,26.1146&z=16&output=embed",
-        "externalUrl": "https://www.google.com/maps/search/?api=1&query=44.4298,26.1146"
+        "embedUrl": "https://www.google.com/maps/d/embed?mid=1tQ34nnFSC9OZEvVMmEQyjDc4v4UVN7o&ehbc=2E312F",
+        "externalUrl": "https://www.google.com/maps/d/viewer?mid=1tQ34nnFSC9OZEvVMmEQyjDc4v4UVN7o"
     },
     "footer": {
+        "copyrightHolder": "Asociația Cartier Viu",
         "rights": "Toate drepturile rezervate."
     },
     "notFound": {

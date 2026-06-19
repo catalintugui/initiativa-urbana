@@ -1,8 +1,18 @@
 import { siteContent } from "../content/siteContent";
 
-export function GetInvolvedPage() {
+type GetInvolvedPageProps = {
+    compact?: boolean;
+};
+
+export function GetInvolvedPage({ compact = false }: GetInvolvedPageProps) {
+    const PanelTag = compact ? "div" : "section";
+
     return (
-        <section className="section action-section page-section">
+        <PanelTag
+            className={
+                compact ? "section action-section snap-panel" : "section action-section page-section"
+            }
+        >
             <div className="section-heading">
                 <p className="section-kicker">
                     {siteContent.involvement.kicker}
@@ -20,6 +30,6 @@ export function GetInvolvedPage() {
                     </article>
                 ))}
             </div>
-        </section>
+        </PanelTag>
     );
 }
