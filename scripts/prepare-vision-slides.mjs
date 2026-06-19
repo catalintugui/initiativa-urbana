@@ -41,11 +41,6 @@ const slides = [
         alt: "Piață comunitară cu arbore central și fântână pentru copii",
     },
     {
-        source: "08_sectiune_stradala_arbori_pietoni",
-        name: "08-sectiune-stradala-arbori-pietoni",
-        alt: "Secțiune stradală cu arbori, pietoni, bicicliști și mașini",
-    },
-    {
         source: "09_strada_cu_pista_biciclete_si_arbori",
         name: "09-strada-pista-biciclete-arbori",
         alt: "Stradă cu pistă de biciclete separată și aliniament de arbori",

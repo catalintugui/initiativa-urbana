@@ -24,10 +24,6 @@ export const visionSlides = [
         alt: "Piață comunitară cu arbore central și fântână pentru copii",
     },
     {
-        src: "/vision/08-sectiune-stradala-arbori-pietoni.webp",
-        alt: "Secțiune stradală cu arbori, pietoni, bicicliști și mașini",
-    },
-    {
         src: "/vision/09-strada-pista-biciclete-arbori.webp",
         alt: "Stradă cu pistă de biciclete separată și aliniament de arbori",
     },
