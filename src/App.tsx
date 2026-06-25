@@ -54,7 +54,7 @@ function App() {
                 <Route index element={<HomePage />} />
                 <Route path="harta" element={<MapPage />} />
                 <Route path="voluntari" element={<VolunteersPage />} />
-                <Route path="petitii" element={<GetInvolvedPage />} />
+                <Route path="actiuni" element={<GetInvolvedPage />} />
                 <Route path="sponsori" element={<SponsorsPage />} />
                 <Route path="echipa" element={<TeamPage />} />
                 <Route path="contact" element={<ContactPage />} />

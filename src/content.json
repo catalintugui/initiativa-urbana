@@ -13,7 +13,7 @@
             { "to": "/", "label": "Cauzaşi 2030" },
             { "to": "/harta", "label": "Hartă" },
             { "to": "/voluntari", "label": "Voluntari" },
-            { "to": "/petitii", "label": "Petiții" },
+            { "to": "/actiuni", "label": "Acțiuni" },
             { "to": "/sponsori", "label": "Sponsori" },
             { "to": "/echipa", "label": "Echipa" },
             { "to": "/contact", "label": "Contact" }
@@ -41,7 +41,7 @@
         "actionsAriaLabel": "Acțiuni principale",
         "primaryAction": {
             "label": "Spune ce trebuie schimbat",
-            "to": "/petitii"
+            "to": "/actiuni"
         },
         "secondaryAction": {
             "label": "Susține petiția",

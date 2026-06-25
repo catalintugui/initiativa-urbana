@@ -2,7 +2,7 @@ export const sectionIds = [
     "cauzasi-2030",
     "harta",
     "voluntari",
-    "petitii",
+    "actiuni",
     "sponsori",
     "echipa",
     "contact",
