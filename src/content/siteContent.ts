@@ -15,6 +15,7 @@ export type TextPageContent = {
     kicker: string;
     title: string;
     body: string[];
+    footnote?: string;
     contactLinks?: Array<{
         label: string;
         href: string;
