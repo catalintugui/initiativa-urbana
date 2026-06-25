@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { withBase } from "../../utils/withBase";
 import { siteContent } from "../../content/siteContent";
 import { SocialLinks } from "../ui/SocialLinks";
 
@@ -15,7 +16,7 @@ export function Footer() {
                 >
                     <img
                         className="footer-brand-mark"
-                        src="/brand/logo-mark.png"
+                        src={withBase("/brand/logo-mark.png")}
                         alt=""
                         aria-hidden="true"
                     />

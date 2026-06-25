@@ -4,6 +4,7 @@ import {
     siteContent,
     type NavigationItem,
 } from "../../content/siteContent";
+import { withBase } from "../../utils/withBase";
 
 export function Navbar() {
     const { pathname } = useLocation();
@@ -26,7 +27,7 @@ export function Navbar() {
             >
                 <span className="brand-mark">
                     <img
-                        src="/brand/logo-mark.png"
+                        src={withBase("/brand/logo-mark.png")}
                         alt=""
                         aria-hidden="true"
                     />
